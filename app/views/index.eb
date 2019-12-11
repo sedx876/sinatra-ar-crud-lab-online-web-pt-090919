@@ -1,6 +1,0 @@
-<%Article.all.each_with_index(1) do |article, i|%>
-<h1>Article Number: <%=i%></h1>
-<h2> Title: <%=article.title%></h2>
-<h2>Content: <%=article.content%></h2>
-<br>
-<%end%>
