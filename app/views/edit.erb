@@ -1,0 +1,9 @@
+<form action="/articles/<%= @article.id %>" method="post">
+  <input id="hidden" type+"hidden" name="_method" value="PATCH">
+  <% article = Article.find(params[:id])%>
+  <p> Old Title: <%=article.title%></p>
+  <p> Old Content: <%=article.content%></p>
+
+  <p>Updated Title: <input type="text" name="title"></p>
+  <p>Updated Content: <input type="text" name="content"></p>
+  <input type="submit" id="submit">
