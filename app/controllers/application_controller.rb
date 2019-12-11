@@ -35,4 +35,17 @@ class ApplicationController < Sinatra::Base
     @article = Article.find_by_id(params[:id])
     erb :edit
   end
+
+  patch '/articles/:id' do
+    @article = Article.find_by_id(params[:id])
+    @article.title = params[:title]
+    @article.content = params[:content]
+    @article.save
+    redirect to "/articles/#{@article.id}"
+  end
+
+  delete '/articles/:id' do
+    article = Article.find(params[:id])
+    article.destroy
+  end
 end
