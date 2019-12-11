@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/articles' do
-    @articles = Articles.all
+    @articles = Article.all
     erb :index
   end
 
@@ -26,6 +26,7 @@ class ApplicationController < Sinatra::Base
   get '/articles/new' do
     erb :new
   end
+
 
   get '/articles/:id' do
     @article = Article.find(params[:id])
@@ -42,6 +43,7 @@ class ApplicationController < Sinatra::Base
     @article.title = params[:title]
     @article.content = params[:content]
     @article.save
+
     redirect to "/articles/#{@article.id}"
   end
 
